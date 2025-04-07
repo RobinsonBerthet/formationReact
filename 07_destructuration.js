@@ -23,7 +23,7 @@ console.log(extractFirstTwo([1,2,3,4]))
  * exemple: [1, 2, 3] => [2, 3]
  */
 
-const extractRest = ([a,...rest]) => (rest)
+const extractRest = ([_, ...rest]) => (rest)
 
 console.log(extractRest([1, 2, 3]));
 
@@ -54,7 +54,7 @@ console.log(extractName({name: "toto", age: 42}));
  * 
  */
 
-const removePassword = ({name}) => ({name});
+const removePassword = ({password, ...rest}) => (rest);
 
 console.log(removePassword({name: "toto", password: "1234"}));
 

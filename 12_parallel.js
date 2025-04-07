@@ -16,7 +16,15 @@
 //const {apiResponse} = require("./11_async");
 
 const parallel = () => {
+    let promise1 = fetch("https://jsonplaceholder.typicode.com/todos/1");
+    let promise2 = fetch("https://jsonplaceholder.typicode.com/todos/2");
+    let promise3 = fetch("https://jsonplaceholder.typicode.com/todos/3");
 
+    Promise.all([promise1, promise2, promise3]).then((values) => {
+        console.log(values);
+    });
 }
+
+parallel();
 
 module.exports = {parallel};

@@ -10,7 +10,7 @@
  * 
   */
 
-const multiplyByTwo = (array) => (array.map((x)=> x*2))
+const multiplyByTwo = array => array.map(x=> x*2)
 
 console.log(multiplyByTwo([2,4,8,16,32,64,128]));
 
@@ -25,7 +25,7 @@ console.log(multiplyByTwo([2,4,8,16,32,64,128]));
  *   - Vous ne pouvez pas utiliser de variable (autre que l'argument de la fonction)
   */
 
-const filterNameStartByA = (array) => (array.filter((x)=> x.substring(0,1) === "A" || x.substring(0,1) === "a"))
+const filterNameStartByA = array=> array.filter(x=> x[0] === "A")
 
 console.log(filterNameStartByA(["abcdcd", "vdfdfg", "aaaa", "bbb"]))
 /**
@@ -61,7 +61,7 @@ console.log(sum([]));
  *   - Vous ne pouvez pas utiliser de variable (autre que l'argument de la fonction)
   */
 
-const findUserById = (array, id) => (array.find((x)=> x.id === id).name)
+const findUserById = (array, id) => (array.find((x)=> x.id === id)?.name ?? "non trouvé")
 
 console.log(findUserById([
  {id: 1, name: 'John'},

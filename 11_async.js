@@ -1,4 +1,4 @@
-//const {sleep} = require("../exercices/10_promise");
+import { sleep } from "./10_promise.js";
 
 /**
  * Créez une fonction synchrone qui attend 2 seconde puis execute le callback passé en paramètre
@@ -12,7 +12,12 @@
  * 
  */
 const usingThen = (cb) => {
+    sleep().then(()=>{
+        cb();
+    });
 }
+
+usingThen(()=>console.log('2'));
 
 /**
  * Créez une fonction asynchrone qui attend 2 seconde puis execute le callback passé en paramètre
@@ -25,9 +30,14 @@ const usingThen = (cb) => {
  *   - ne pas utiliser .then
  */
 
-const usingAwait = (cb) => {
+const usingAwait = async (cb) => {
 
+    await sleep();
+    cb();
 }
+
+usingAwait(()=>console.log('await'));
+
 
 /**
  * Créez une fonction asynchrone qui effectue un appel api vers l'url passé en paramètre
@@ -42,11 +52,14 @@ const usingAwait = (cb) => {
  */
 
 //décommentez la ligne suivante une fois le package installé
-//const axios = require("axios");
+// const axios = require("axios");
 
 const apiResponse = async (url) => {
-
+    let response = await fetch(url);
+    return response;
 }
 
+console.log(await apiResponse('https://google.com'))
 
-module.exports = {usingThen, usingAwait, apiResponse};
+
+export default {usingThen, usingAwait, apiResponse};
