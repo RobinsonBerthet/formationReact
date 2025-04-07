@@ -20,7 +20,7 @@ console.log(arrow1(1));
  *   - le mot clée "return" est interdis
  */
 
-let arrow2 = (a) => {()=>a+1}
+let arrow2 = (a) => a+1
 
 console.log(arrow2(2))
 
